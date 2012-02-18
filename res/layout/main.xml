@@ -9,7 +9,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="4dip"
-        android:text="@string/voice_recognition_prompt" />
+        android:text="@string/voice_recognition_prompt"
+        android:textSize="20dp" />
 
     <Spinner
         android:id="@+id/supported_languages"
@@ -27,12 +28,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
+
       <TextView
-        android:id="@+id/txtWord"
-        android:layout_width="fill_parent"
-        android:layout_height="72dp"
-        android:text="@string/strSample"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+          android:id="@+id/txtWord"
+          android:layout_width="fill_parent"
+          android:layout_height="72dp"
+          android:text="@string/strSample"
+          android:textAppearance="?android:attr/textAppearanceLarge"
+          android:textSize="50dp" />
 
       <TextView
           android:id="@+id/txtReceivedMatches"
@@ -43,27 +46,32 @@
         
     </LinearLayout>
 
-    
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
-      
-        
-<Button
-        android:id="@+id/btnSpeak"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:text="@string/speak_button" />
 
-<Button
-    android:id="@+id/btnNext"
-    android:layout_width="72dp"
-    android:layout_height="72dp"
-    android:text="@string/strSkip" />
         
+<Button
+            android:id="@+id/btnRepeat"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_weight="0.16"
+            android:text="@string/strRepeat" />
+        <Button
+            android:id="@+id/btnSpeak"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_weight="0.16"
+            android:text="@string/speak_button" />
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="0.04"
+            android:text="@string/strSkip" />
     </LinearLayout>
-
-    
 
  </LinearLayout>
