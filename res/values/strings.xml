@@ -3,7 +3,10 @@
 
     <string name="hello">Hello World, SpeakiiActivity!</string>
     <string name="app_name">Speakii</string>
-    <string name="voice_recognition_prompt">Prompt</string>
+    <string name="voice_recognition_prompt">Say the word displayed below</string>
     <string name="speak_button">Speak</string>
+    <string name="strEmpty"></string>
+    <string name="strSample">SampleWord</string>
+        <string name="strNext">Next</string>
     
 </resources>
