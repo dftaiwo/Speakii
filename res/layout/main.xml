@@ -57,10 +57,10 @@
         android:text="@string/speak_button" />
 
 <Button
-        android:id="@+id/btnNext"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:text="@string/strNext" />
+    android:id="@+id/btnNext"
+    android:layout_width="72dp"
+    android:layout_height="72dp"
+    android:text="@string/strSkip" />
         
     </LinearLayout>
 

@@ -152,7 +152,6 @@ public class SpeakiiActivity extends Activity implements OnClickListener {
 	private void checkResponse() {
 		// TODO Auto-generated method stub
 
-		
 		boolean correctlyPronounced = false;
 
 		for (String word : proMatches) {
@@ -166,10 +165,10 @@ public class SpeakiiActivity extends Activity implements OnClickListener {
 
 		if (correctlyPronounced) {
 			
-			double passRate = Math.ceil(1 / proMatches.size());
-			showMessage("Pass: "+passRate);
+			double passRate = Math.ceil(100 / proMatches.size());
+			showMessage("Success!. Mark: "+passRate+"%");
 //			showSuccess();
-//			displayNextWord();
+			displayNextWord();
 		} else {
 			showRetry();
 		}
@@ -239,7 +238,7 @@ public class SpeakiiActivity extends Activity implements OnClickListener {
 		currentWord = wordsStore[shuffle];
 		txtWord.setText(currentWord);
 
-		disableNext();
+		//disableNext();
 
 	}
 

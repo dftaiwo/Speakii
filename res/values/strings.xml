@@ -8,5 +8,6 @@
     <string name="strEmpty"></string>
     <string name="strSample">SampleWord</string>
         <string name="strNext">Next</string>
+        <string name="strSkip">Skip</string>
     
 </resources>
