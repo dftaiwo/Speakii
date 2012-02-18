@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, SpeakiiActivity!</string>
+    <string name="app_name">Speakii</string>
+    <string name="voice_recognition_prompt">Prompt</string>
+    <string name="speak_button">Speak</string>
+    
+</resources>
