@@ -35,6 +35,8 @@ public class SpeakiiActivity extends Activity implements OnClickListener {
 	MediaPlayer player;
 	  boolean playerUsed = false;
 
+	private int successActivityID=1011;
+
 	/**
 	 * Called with the activity is first created.
 	 */
@@ -108,7 +110,6 @@ public class SpeakiiActivity extends Activity implements OnClickListener {
 		generateList();
 
 		//This is a quick hack
-
 		
 		displayNextWord();
 	}
@@ -157,6 +158,12 @@ public class SpeakiiActivity extends Activity implements OnClickListener {
 
 			mList.setAdapter(new ArrayAdapter<String>(this,
 					android.R.layout.simple_list_item_1, proMatches));
+		}else if(requestCode==successActivityID){
+			
+			
+			displayNextWord();
+			
+			
 		}
 
 		super.onActivityResult(requestCode, resultCode, data);
@@ -190,9 +197,9 @@ public class SpeakiiActivity extends Activity implements OnClickListener {
 		if (correctlyPronounced) {
 
 			double passRate = Math.ceil(100 / proMatches.size());
-			showMessage("Success!. Mark: " + passRate + "%");
-			// showSuccess();
-			displayNextWord();
+			//showMessage("Success!. Mark: " + passRate + "%");
+			 showSuccess();
+//			displayNextWord();
 		} else {
 			showRetry();
 		}
@@ -204,7 +211,14 @@ public class SpeakiiActivity extends Activity implements OnClickListener {
 	 */
 	private void showSuccess() {
 		// TODO Auto-generated method stub
-		showMessage("Correct!");
+//		showMessage("Correct!");
+		
+
+		 Intent intent;
+
+		 intent = new Intent().setClass(this, SuccessActivity.class);
+
+		 startActivityForResult(intent, successActivityID);
 	}
 
 	private void showMessage(String messageText) {
@@ -235,8 +249,8 @@ public class SpeakiiActivity extends Activity implements OnClickListener {
 	 */
 	private void showRetry() {
 		// TODO Auto-generated method stub
-		showMessage("Please retry!");
-
+		showMessage("Please Try Again.\n What you said sounds like: \n"+proMatches.toString());
+		
 	}
 
 	/**

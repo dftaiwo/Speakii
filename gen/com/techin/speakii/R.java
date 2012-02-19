@@ -12,24 +12,34 @@ public final class R {
     }
     public static final class color {
         public static final int currentWord=0x7f040000;
+        public static final int whiteBg=0x7f040001;
     }
     public static final class drawable {
-        public static final int go=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
-        public static final int wallpaper=0x7f020002;
-        public static final int wallpaper2=0x7f020003;
-        public static final int wallpaper_landscape=0x7f020004;
-        public static final int wallpaper_landscape2=0x7f020005;
-        public static final int wallpaperc=0x7f020006;
+        public static final int back=0x7f020000;
+        public static final int go=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
+        public static final int repeat=0x7f020003;
+        public static final int skip=0x7f020004;
+        public static final int smileyface=0x7f020005;
+        public static final int smileyface_landscape=0x7f020006;
+        public static final int speak=0x7f020007;
+        public static final int wallpaper=0x7f020008;
+        public static final int wallpaper2=0x7f020009;
+        public static final int wallpaper_landscape=0x7f02000a;
+        public static final int wallpaper_landscape2=0x7f02000b;
+        public static final int wallpaperc=0x7f02000c;
     }
     public static final class id {
         public static final int btnContinue=0x7f06000a;
+        public static final int btnGo=0x7f06000c;
         public static final int btnNext=0x7f060008;
         public static final int btnRepeat=0x7f060006;
         public static final int btnSpeak=0x7f060007;
+        public static final int imageView1=0x7f06000b;
         public static final int linearLayout1=0x7f060002;
         public static final int linearLayout2=0x7f060005;
         public static final int list=0x7f060001;
+        public static final int successLayout=0x7f06000d;
         public static final int supported_languages=0x7f060000;
         public static final int textView1=0x7f060009;
         public static final int txtReceivedMatches=0x7f060004;
@@ -38,6 +48,7 @@ public final class R {
     public static final class layout {
         public static final int main=0x7f030000;
         public static final int splash=0x7f030001;
+        public static final int success=0x7f030002;
     }
     public static final class string {
         public static final int app_name=0x7f050001;

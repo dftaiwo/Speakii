@@ -23,6 +23,7 @@
         <activity android:name=".SpeakiiActivity">
             
         </activity>
+        <activity android:name="SuccessActivity"></activity>
         
     </application>
 

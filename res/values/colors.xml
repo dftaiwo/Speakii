@@ -2,4 +2,5 @@
     <resources>
         
         <color name="currentWord">#660000</color>
+        <color name="whiteBg">#ffffff</color>
     </resources>
