@@ -54,6 +54,16 @@
           android:textAppearance="?android:attr/textAppearanceMedium"
     
            />
+
+      <ImageView
+          android:id="@+id/currentImage"
+          android:layout_width="fill_parent"
+          android:layout_height="fill_parent"
+          android:src="@drawable/blank" 
+          
+          android:gravity="center_vertical|center_horizontal"
+          
+          />
         
     </LinearLayout>
 

@@ -17,11 +17,13 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import android.content.res.AssetFileDescriptor;
+import android.graphics.drawable.Drawable;
 
 public class SpeakiiActivity extends Activity implements OnClickListener {
 
@@ -113,6 +115,9 @@ public class SpeakiiActivity extends Activity implements OnClickListener {
 		//This is a quick hack
 		
 		displayNextWord();
+		
+
+		
 	}
 
 	/**
@@ -275,9 +280,35 @@ public class SpeakiiActivity extends Activity implements OnClickListener {
 		int shuffle = wordsList.get(0);
 		currentWord = wordsStore[shuffle];
 		txtWord.setText(currentWord);
+		imageizeCurrentWord();
 		playCurrentWord();
 		// disableNext();
 
+	}
+
+	private void imageizeCurrentWord() {
+		// TODO Auto-generated method stub
+		ImageView currentImageObj = (ImageView) findViewById(R.id.currentImage);
+ 
+       
+        
+		try {
+			  InputStream ims2 = getAssets().open("blank.png");
+		         // load image as Drawable
+		         Drawable d2 = Drawable.createFromStream(ims2, null);
+		         // set image to ImageView
+		        currentImageObj.setImageDrawable(d2);
+			
+			
+             // get input stream
+ 	            InputStream ims = getAssets().open(currentWord+".jpg");
+ 	            // load image as Drawable
+ 	            Drawable d = Drawable.createFromStream(ims, null);
+ 	            // set image to ImageView
+ 	           currentImageObj.setImageDrawable(d);
+ 	        } catch(IOException ex) {
+ 	            return;
+ 	        }
 	}
 
 	protected void playCurrentWord() {

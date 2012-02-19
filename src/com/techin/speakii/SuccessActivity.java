@@ -41,6 +41,10 @@ public class SuccessActivity extends Activity implements OnClickListener{
 //		// Start animating the image
 //		final ImageView splash = (ImageView) findViewById(R.id.btnContinue);
 //		splash.startAnimation(anim);
+		
+		
+		
+		
 	}
 
 	@Override
