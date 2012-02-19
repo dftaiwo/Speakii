@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import java.io.IOException;
@@ -27,7 +28,7 @@ public class SpeakiiActivity extends Activity implements OnClickListener {
 	private static final int VOICE_RECOGNITION_REQUEST_CODE = 1234;
 
 	private ListView mList;
-	Button speakButton, nextButton,btnRepeat;
+	ImageView speakButton, nextButton,btnRepeat;
 	TextView txtWord, txtReceivedMatches;
 	String wordsStore[], currentWord;
 	List<Integer> wordsList = new LinkedList<Integer>();
@@ -48,9 +49,9 @@ public class SpeakiiActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.main);
 		  player = new MediaPlayer();
 		// Get display items for later interaction
-		speakButton = (Button) findViewById(R.id.btnSpeak);
-		nextButton = (Button) findViewById(R.id.btnNext);
-		btnRepeat = (Button) findViewById(R.id.btnRepeat);
+		speakButton = (ImageView) findViewById(R.id.btnSpeak);
+		nextButton = (ImageView) findViewById(R.id.btnNext);
+		btnRepeat = (ImageView) findViewById(R.id.btnRepeat);
 		txtWord = (TextView) findViewById(R.id.txtWord);
 		txtReceivedMatches = (TextView) findViewById(R.id.txtReceivedMatches);
 		wordsStore = new String[] { 
