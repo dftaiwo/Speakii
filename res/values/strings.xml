@@ -2,12 +2,14 @@
 <resources>
 
     <string name="hello">Hello World, SpeakiiActivity!</string>
-    <string name="app_name">Speakii</string>
+    <string name="app_name">Speakii!</string>
     <string name="voice_recognition_prompt">Say the word displayed below</string>
     <string name="speak_button">Speak</string>
     <string name="strEmpty"></string>
     <string name="strSample">SampleWord</string>
         <string name="strNext">Next</string>
         <string name="strSkip">Skip</string>
-    
+        <string name="strContinue">Continue</string>
+        <string name="strRepeat">Repeat Word</string>
+ 
 </resources>

@@ -2,59 +2,39 @@ package com.techin.speakii;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.net.Uri;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.app.Activity;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.os.Bundle;
-import android.os.Handler;
 import android.speech.RecognizerIntent;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
-
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import android.app.Activity;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.os.Bundle;
-import android.speech.RecognizerIntent;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-
-import java.util.ArrayList;
-import java.util.List;
- 
+import android.content.res.AssetFileDescriptor;
 
 public class SpeakiiActivity extends Activity implements OnClickListener {
 
 	private static final int VOICE_RECOGNITION_REQUEST_CODE = 1234;
 
 	private ListView mList;
-	Button speakButton, nextButton;
-	TextView txtWord,txtReceivedMatches;
+	Button speakButton, nextButton,btnRepeat;
+	TextView txtWord, txtReceivedMatches;
 	String wordsStore[], currentWord;
 	List<Integer> wordsList = new LinkedList<Integer>();
 	ArrayList<String> proMatches;
+	MediaPlayer player;
+	  boolean playerUsed = false;
+
 	/**
 	 * Called with the activity is first created.
 	 */
@@ -64,15 +44,52 @@ public class SpeakiiActivity extends Activity implements OnClickListener {
 
 		// Inflate our UI from its XML layout description.
 		setContentView(R.layout.main);
-
+		  player = new MediaPlayer();
 		// Get display items for later interaction
 		speakButton = (Button) findViewById(R.id.btnSpeak);
 		nextButton = (Button) findViewById(R.id.btnNext);
+		btnRepeat = (Button) findViewById(R.id.btnRepeat);
 		txtWord = (TextView) findViewById(R.id.txtWord);
-		txtReceivedMatches= (TextView) findViewById(R.id.txtReceivedMatches);
-		wordsStore = new String[] { "constitution", "book", "textbook",
-				"compact", "market" };
+		txtReceivedMatches = (TextView) findViewById(R.id.txtReceivedMatches);
+		wordsStore = new String[] { 
 
+				"church",
+				"market",
+				"sit",
+				"seat",
+				"honor",
+				"please",
+				"pressure",
+				"pot",
+				"port",
+				"oil",
+				"look",
+				"took",
+				"sleep",
+				"slip",
+				"mother",
+				"suite",
+				"fat",
+				"choir",
+				"thankyou",
+				"grace",
+				"graze",
+				"pain",
+				"cow",
+				"shift",
+				"cat",
+				"kiss",
+				"fence",
+				"house",
+				"table",
+				"sing",
+				"cheese",
+				"cheat",
+				"peep",
+				"morning",
+				"money"
+		
+		};
 		mList = (ListView) findViewById(R.id.list);
 
 		// Check to see if a recognition activity is present
@@ -87,9 +104,13 @@ public class SpeakiiActivity extends Activity implements OnClickListener {
 		}
 
 		nextButton.setOnClickListener(this);
+		btnRepeat.setOnClickListener(this);
 
 		generateList();
 
+		//This is a quick hack
+
+		
 		displayNextWord();
 	}
 
@@ -101,6 +122,8 @@ public class SpeakiiActivity extends Activity implements OnClickListener {
 			startVoiceRecognitionActivity();
 		} else if (v.getId() == R.id.btnNext) {
 			displayNextWord();
+		}else if (v.getId() == R.id.btnRepeat) {
+			playCurrentWord();
 		}
 	}
 
@@ -127,17 +150,19 @@ public class SpeakiiActivity extends Activity implements OnClickListener {
 			// could have heard
 			proMatches = data
 					.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-			
+
 			enableNext();
 
 			showWordMatches(proMatches);
 			checkResponse();
-			
+
 			mList.setAdapter(new ArrayAdapter<String>(this,
 					android.R.layout.simple_list_item_1, proMatches));
 		}
 
 		super.onActivityResult(requestCode, resultCode, data);
+		
+		
 	}
 
 	private void showWordMatches(ArrayList<String> matchesReturned) {
@@ -164,10 +189,10 @@ public class SpeakiiActivity extends Activity implements OnClickListener {
 		}
 
 		if (correctlyPronounced) {
-			
+
 			double passRate = Math.ceil(100 / proMatches.size());
-			showMessage("Success!. Mark: "+passRate+"%");
-//			showSuccess();
+			showMessage("Success!. Mark: " + passRate + "%");
+			// showSuccess();
 			displayNextWord();
 		} else {
 			showRetry();
@@ -190,8 +215,8 @@ public class SpeakiiActivity extends Activity implements OnClickListener {
 
 		alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
-					
- 			}
+
+			}
 		});
 		alertDialog.show();
 
@@ -213,7 +238,6 @@ public class SpeakiiActivity extends Activity implements OnClickListener {
 		// TODO Auto-generated method stub
 		showMessage("Please retry!");
 
-
 	}
 
 	/**
@@ -231,14 +255,41 @@ public class SpeakiiActivity extends Activity implements OnClickListener {
 	 */
 
 	protected void displayNextWord() {
-
+		
 		Collections.shuffle(wordsList);
 
 		int shuffle = wordsList.get(0);
 		currentWord = wordsStore[shuffle];
 		txtWord.setText(currentWord);
+		playCurrentWord();
+		// disableNext();
 
-		//disableNext();
+	}
+
+	protected void playCurrentWord() {
+
+		try {
+			// currentWord
+			AssetFileDescriptor afd = getAssets().openFd(currentWord + ".mp3");
+			
+			if(playerUsed){
+				player.reset();
+			}
+			player.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(),afd.getLength());
+			player.prepare();
+			player.start();
+			playerUsed = true;
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+
+		}
 
 	}
 
