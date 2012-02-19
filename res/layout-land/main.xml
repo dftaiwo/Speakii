@@ -4,7 +4,9 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="@drawable/wallpaper_landscape" >
+    android:background="@drawable/wallpaper_landscape" 
+    
+    >
     
     <TextView
         android:layout_width="fill_parent"
@@ -28,7 +30,7 @@
         android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:orientation="vertical" android:layout_weight="1" >
 
       <TextView
           android:id="@+id/txtWord"

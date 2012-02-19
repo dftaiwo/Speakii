@@ -71,7 +71,6 @@ public class SpeakiiActivity extends Activity implements OnClickListener {
 				"suite",
 				"fat",
 				"choir",
-				"thankyou",
 				"grace",
 				"graze",
 				"pain",
@@ -267,7 +266,7 @@ public class SpeakiiActivity extends Activity implements OnClickListener {
 	}
 
 	protected void playCurrentWord() {
-
+			//if(1>0) return ;
 		try {
 			// currentWord
 			AssetFileDescriptor afd = getAssets().openFd(currentWord + ".mp3");
