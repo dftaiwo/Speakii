@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@drawable/wallpaper_landscape"
+    >
+    
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dip"
+        android:text="@string/voice_recognition_prompt"
+        android:textSize="20dp" />
+
+    <Spinner
+        android:id="@+id/supported_languages"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" android:visibility="gone" />
+
+ 
+    <ListView android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1" android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+      <TextView
+          android:id="@+id/txtWord"
+          android:layout_width="fill_parent"
+          android:layout_height="72dp"
+          android:text="@string/strSample"
+          android:textAppearance="?android:attr/textAppearanceLarge"
+          android:textColor="@color/colors"
+          android:textSize="50dp" />
+
+      <TextView
+          android:id="@+id/txtReceivedMatches"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/strEmpty"
+          android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        
+<Button
+            android:id="@+id/btnRepeat"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_weight="0.16"
+            android:text="@string/strRepeat" />
+        <Button
+            android:id="@+id/btnSpeak"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_weight="0.16"
+            android:text="@string/speak_button" />
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="0.04"
+            android:text="@string/strSkip" />
+    </LinearLayout>
+
+ </LinearLayout>
