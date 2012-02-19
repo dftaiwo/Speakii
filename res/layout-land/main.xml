@@ -4,8 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="@drawable/wallpaper_landscape"
-    >
+    android:background="@drawable/wallpaper_landscape" >
     
     <TextView
         android:layout_width="fill_parent"
@@ -37,15 +36,20 @@
           android:layout_height="72dp"
           android:text="@string/strSample"
           android:textAppearance="?android:attr/textAppearanceLarge"
-          android:textColor="@color/colors"
-          android:textSize="50dp" />
+          android:textColor="@color/currentWord"
+          android:textSize="50dp" 
+          android:typeface="sans"
+          android:textStyle="bold"
+          />
 
       <TextView
           android:id="@+id/txtReceivedMatches"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="@string/strEmpty"
-          android:textAppearance="?android:attr/textAppearanceMedium" />
+          android:textAppearance="?android:attr/textAppearanceMedium"
+    
+           />
         
     </LinearLayout>
 

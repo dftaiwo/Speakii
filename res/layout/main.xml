@@ -37,8 +37,11 @@
           android:layout_height="72dp"
           android:text="@string/strSample"
           android:textAppearance="?android:attr/textAppearanceLarge"
-          android:textColor="@color/colors"
-          android:textSize="50dp" />
+          android:textColor="@color/currentWord"
+          android:textSize="50dp"
+                android:typeface="sans"
+          android:textStyle="bold"
+           />
 
       <TextView
           android:id="@+id/txtReceivedMatches"

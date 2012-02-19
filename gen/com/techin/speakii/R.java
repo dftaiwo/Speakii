@@ -11,7 +11,7 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
-        public static final int colors=0x7f050000;
+        public static final int currentWord=0x7f040000;
     }
     public static final class drawable {
         public static final int go=0x7f020000;
@@ -40,16 +40,16 @@ public final class R {
         public static final int splash=0x7f030001;
     }
     public static final class string {
-        public static final int app_name=0x7f040001;
-        public static final int compact=0x7f04000a;
-        public static final int hello=0x7f040000;
-        public static final int speak_button=0x7f040003;
-        public static final int strContinue=0x7f040008;
-        public static final int strEmpty=0x7f040004;
-        public static final int strNext=0x7f040006;
-        public static final int strRepeat=0x7f040009;
-        public static final int strSample=0x7f040005;
-        public static final int strSkip=0x7f040007;
-        public static final int voice_recognition_prompt=0x7f040002;
+        public static final int app_name=0x7f050001;
+        public static final int compact=0x7f05000a;
+        public static final int hello=0x7f050000;
+        public static final int speak_button=0x7f050003;
+        public static final int strContinue=0x7f050008;
+        public static final int strEmpty=0x7f050004;
+        public static final int strNext=0x7f050006;
+        public static final int strRepeat=0x7f050009;
+        public static final int strSample=0x7f050005;
+        public static final int strSkip=0x7f050007;
+        public static final int voice_recognition_prompt=0x7f050002;
     }
 }
