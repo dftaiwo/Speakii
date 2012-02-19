@@ -29,21 +29,21 @@
         android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" 
-        android:layout_weight="1" 
-        >
+        android:layout_weight="1"
+        android:orientation="vertical" >
 
       <TextView
           android:id="@+id/txtWord"
           android:layout_width="fill_parent"
           android:layout_height="72dp"
+   android:gravity="center_vertical|center_horizontal"
+  
           android:text="@string/strSample"
           android:textAppearance="?android:attr/textAppearanceLarge"
           android:textColor="@color/currentWord"
           android:textSize="50dp"
-                android:typeface="sans"
           android:textStyle="bold"
-           />
+          android:typeface="sans" />
 
       <TextView
           android:id="@+id/txtReceivedMatches"

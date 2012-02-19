@@ -42,6 +42,8 @@
           android:textSize="50dp" 
           android:typeface="sans"
           android:textStyle="bold"
+          android:gravity="center_vertical|center_horizontal"
+          
           />
 
       <TextView
@@ -58,29 +60,32 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+         android:paddingBottom="6dp"
+         >
 
         
-<Button
-            android:id="@+id/btnRepeat"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:layout_weight="0.16"
-            android:text="@string/strRepeat" />
-        <Button
-            android:id="@+id/btnSpeak"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:layout_weight="0.16"
-            android:text="@string/speak_button" />
 
-        <Button
-            android:id="@+id/btnNext"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:layout_gravity="bottom"
-            android:layout_weight="0.04"
-            android:text="@string/strSkip" />
+<ImageView
+    android:id="@+id/btnRepeat"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="0.16"
+    android:src="@drawable/repeat" />
+
+<ImageView
+    android:id="@+id/btnSpeak"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="0.16"
+    android:src="@drawable/speak" />
+ 
+<ImageView
+    android:id="@+id/btnNext"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="0.16"
+    android:src="@drawable/skip" />
     </LinearLayout>
 
  </LinearLayout>
